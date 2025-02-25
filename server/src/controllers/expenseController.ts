@@ -22,8 +22,9 @@ export const getExpensesByCategory = async (
       })
     );
 
-    res.json(expenseByCategorySummary);
+    res.status(200).json(expenseByCategorySummary);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Error retrieving expenses by category" });
   }
 };

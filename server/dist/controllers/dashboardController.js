@@ -39,7 +39,7 @@ const getDashboardMetrics = async (req, res) => {
             ...item,
             amount: item.amount.toString(),
         }));
-        res.json({
+        res.status(200).json({
             popularProducts,
             salesSummary,
             purchaseSummary,
@@ -48,6 +48,7 @@ const getDashboardMetrics = async (req, res) => {
         });
     }
     catch (error) {
+        console.error("Error retrieving dashboard metrics:", error);
         res.status(500).json({ message: "Error retrieving dashboard metrics" });
     }
 };
